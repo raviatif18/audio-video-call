@@ -1,6 +1,6 @@
 # Audio-Video-Call
 
-Audio video call javascript app - https://github.com/raviatif18/audio-video-call
+Audio video call javascript App
 
 ## How to use    
     <!DOCTYPE html>
