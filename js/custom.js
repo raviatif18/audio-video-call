@@ -8,6 +8,8 @@
         // this line is VERY_important
         connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
         
+        connection.keepStreamsOpened = false;
+        
         // if you want audio+video conferencing
         connection.session = {
             audio: true,
@@ -140,7 +142,15 @@
         });    
         
         $('#lStop').on('click',function(){
-            connection.leave();
+
+            // stop all local cameras
+            connection.attachStreams.forEach(function(localStream) {
+                localStream.stop();
+            });
+        
+            // close socket.io connection
+            connection.close();
+            
         });    
         
         $('#videos-remote-multi').on('click','.media-container',function(){
